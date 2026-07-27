@@ -15,5 +15,5 @@ To compile the project use this PowerShell command in your terminal interface:
 To execute the project after compile, use this PowerShell command in yout terminal interface:
 
 ```bash
-> java -cp "bin;libs/*" musicplayer.MusicPlayer
+> java -cp "bin;lib/*" musicplayer.MusicPlayer
 ```
