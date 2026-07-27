@@ -1,9 +1,5 @@
 package musicplayer.model;
 
-import java.io.File;
-import javazoom.jlgui.basicplayer.BasicPlayer;
-import javazoom.jlgui.basicplayer.BasicPlayerException;
-
 public class Music {
     private String name;
     private String filePath;
@@ -27,19 +23,6 @@ public class Music {
     }
 
     public void play() {
-        File musicFile = new File(filePath);
-        try {
-            BasicPlayer basicPlayer = new BasicPlayer();
-            basicPlayer.open(musicFile);
-            basicPlayer.play();
-            Thread.sleep(15000);
-            basicPlayer.pause();
-        } catch (BasicPlayerException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            e.printStackTrace();
-        }
     }
 
 }
