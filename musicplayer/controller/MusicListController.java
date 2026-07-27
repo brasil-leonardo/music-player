@@ -18,6 +18,7 @@ public class MusicListController {
         for (File file : musics) {
             musicList.add(new Music(file.getName().replace(".mp3", ""), file.getAbsolutePath()));
         }
+        musicList.getFirst().play();
         return musicList;
     }
 }
