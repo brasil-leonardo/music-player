@@ -1,5 +1,7 @@
 package musicplayer.model;
 
+
+
 public class Music {
     private String name;
     private String filePath;

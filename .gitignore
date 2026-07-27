@@ -1,0 +1,2 @@
+# make git ignore java class compiled files
+*.class

@@ -8,11 +8,13 @@ import javax.swing.JFrame;
 import musicplayer.view.panel.InfoPanel;
 import musicplayer.view.panel.MenuPanel;
 import musicplayer.view.panel.MusicListPanel;
+import musicplayer.view.panel.MusicStatusPanel;
 
 public class MainFrame extends JFrame {
     private final MenuPanel menuPanel;
     private final MusicListPanel musicListPanel;
     private final InfoPanel infoPanel;
+    private final MusicStatusPanel musicStatusPanel;
 
     public MainFrame() {
         setTitle("MusicPlayer");
@@ -44,6 +46,9 @@ public class MainFrame extends JFrame {
 
         infoPanel = new InfoPanel();
         add(infoPanel, BorderLayout.LINE_END);
+
+        musicStatusPanel = new MusicStatusPanel();
+        add(musicStatusPanel, BorderLayout.PAGE_END);
 
         setVisible(true);
     }

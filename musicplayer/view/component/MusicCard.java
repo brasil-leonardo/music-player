@@ -23,15 +23,10 @@ public class MusicCard extends JPanel {
         this.setLayout(layoutManager);
 
         JLabel musicName = new JLabel(name);
-        int musicNameWidth = musicName.getPreferredSize().width;
-
         JButton playButton = new JButton("Play");
-        int playButtonWidth = playButton.getPreferredSize().width;
-
-        int gap = this.getWidth() - 10 - (musicNameWidth + playButtonWidth);
 
         this.add(musicName);
-        this.add(Box.createHorizontalStrut(gap));
+        this.add(Box.createHorizontalGlue());
         this.add(playButton);
     }
 }

@@ -23,6 +23,8 @@ public class MusicListPanel extends JScrollPane {
         setPreferredSize(size);
         setMaximumSize(size);
 
+        //setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.BLACK));
+
         panel = new JPanel();
 
         BoxLayout layoutManager = new BoxLayout(panel, BoxLayout.Y_AXIS);
