@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import musicplayer.controller.MainController;
 import musicplayer.view.panel.InfoPanel;
 import musicplayer.view.panel.MenuPanel;
 import musicplayer.view.panel.MusicListPanel;
 import musicplayer.view.panel.MusicStatusPanel;
 
 public class MainFrame extends JFrame {
+    private final MainController mainController;
     private final MenuPanel menuPanel;
     private final MusicListPanel musicListPanel;
     private final InfoPanel infoPanel;
@@ -49,6 +51,8 @@ public class MainFrame extends JFrame {
 
         musicStatusPanel = new MusicStatusPanel();
         add(musicStatusPanel, BorderLayout.PAGE_END);
+
+        mainController = new MainController(menuPanel, musicListPanel, infoPanel, musicStatusPanel);
 
         setVisible(true);
     }

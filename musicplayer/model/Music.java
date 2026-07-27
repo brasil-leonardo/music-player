@@ -22,7 +22,4 @@ public class Music {
         return "Music > Name: " + this.name + " File Path: " + this.filePath;
     }
 
-    public void play() {
-    }
-
 }
