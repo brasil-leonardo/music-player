@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+
 import musicplayer.controller.MainController;
 import musicplayer.view.panel.InfoPanel;
 import musicplayer.view.panel.MenuPanel;

@@ -2,6 +2,7 @@ package musicplayer.view.panel;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -24,8 +25,6 @@ public class MusicListPanel extends JScrollPane {
         setPreferredSize(size);
         setMaximumSize(size);
 
-        //setBorder(BorderFactory.createMatteBorder(0, 1, 0, 1, Color.BLACK));
-
         panel = new JPanel();
 
         BoxLayout layoutManager = new BoxLayout(panel, BoxLayout.Y_AXIS);
@@ -38,6 +37,10 @@ public class MusicListPanel extends JScrollPane {
         loadMusicsFromHome();
     }
 
+    public MusicListController getController() {
+        return controller;
+    }
+
     public void loadMusicsFromHome() {
         panel.removeAll();
         ArrayList<Music> musics = controller.getMusicsFromHome();
@@ -45,7 +48,7 @@ public class MusicListPanel extends JScrollPane {
         for (Music music : musics) {
             MusicCard musicCard = new MusicCard(music.getName(), music.getFilePath());
             musicCard.addPlayButtonActionListener((ActionEvent e) -> {
-                controller.playMusic(music.getFilePath());
+                controller.play(music);
             });
             panel.add(musicCard);
             panel.add(Box.createVerticalStrut(1));
@@ -61,8 +64,8 @@ public class MusicListPanel extends JScrollPane {
         for (Music music : musics) {
             MusicCard musicCard = new MusicCard(music.getName(), music.getFilePath());
             musicCard.addPlayButtonActionListener((ActionEvent e) -> {
-                controller.playMusic(music.getFilePath());
-            });
+                controller.play(music);
+            });            
             panel.add(musicCard);
             panel.add(Box.createVerticalStrut(1));
         }
