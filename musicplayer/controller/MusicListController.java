@@ -11,6 +11,18 @@ public class MusicListController {
     private Path homePath = Path.of(System.getProperty("user.home"), "Music");
     private MP3Player player = new MP3Player();
 
+    public MusicListController() {
+
+    }
+
+    public Path getHomePath() {
+        return homePath;
+    }
+
+    public MP3Player getPlayer() {
+        return player;
+    }
+
     public ArrayList<Music> getMusicsFromHome() {
         return listMusics(homePath);
     }

@@ -17,15 +17,23 @@ public class Music {
     }
 
     public String getName() {
-        return this.name;
+        return name;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Duration getDuration() {
+        return duration;
     }
 
     public String getFilePath() {
-        return this.filePath;
+        return filePath;
     }
 
     public File getFile() {
-        return this.file;
+        return file;
     }
 
 }

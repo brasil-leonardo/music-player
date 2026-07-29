@@ -2,7 +2,6 @@ package musicplayer.view.panel;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -39,6 +38,10 @@ public class MusicListPanel extends JScrollPane {
 
     public MusicListController getController() {
         return controller;
+    }
+
+    public JPanel getPanel() {
+        return panel;
     }
 
     public void loadMusicsFromHome() {

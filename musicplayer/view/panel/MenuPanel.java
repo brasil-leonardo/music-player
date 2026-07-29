@@ -1,7 +1,6 @@
 package musicplayer.view.panel;
 
 import java.awt.Dimension;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -37,6 +36,18 @@ public class MenuPanel extends JPanel {
         add(openFolderButton);
         add(Box.createVerticalStrut(5));
         add(playlistsButton);
+    }
+
+    public MenuButton getHomeButton() {
+        return homeButton;
+    }
+
+    public MenuButton getOpenFolderButton() {
+        return openFolderButton;
+    }
+
+    public MenuButton getPlaylistsButton() {
+        return playlistsButton;
     }
 
     public void addHomeButtonActionListener(ActionListener event) {

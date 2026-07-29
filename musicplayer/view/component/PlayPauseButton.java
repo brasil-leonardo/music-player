@@ -16,6 +16,10 @@ public class PlayPauseButton extends JButton {
         setText("Pause");
     }
 
+    public MusicStatus getStatus() {
+        return status;
+    }
+
     public MusicStatus getMusicStatus() {
         return this.status;
     }

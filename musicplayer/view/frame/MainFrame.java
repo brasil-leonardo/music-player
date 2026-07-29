@@ -13,11 +13,11 @@ import musicplayer.view.panel.MusicListPanel;
 import musicplayer.view.panel.MusicStatusPanel;
 
 public class MainFrame extends JFrame {
-    private final MainController mainController;
     private final MenuPanel menuPanel;
     private final MusicListPanel musicListPanel;
     private final InfoPanel infoPanel;
     private final MusicStatusPanel musicStatusPanel;
+    private final MainController mainController;
 
     public MainFrame() {
         setTitle("MusicPlayer");
@@ -56,5 +56,25 @@ public class MainFrame extends JFrame {
         mainController = new MainController(menuPanel, musicListPanel, infoPanel, musicStatusPanel);
 
         setVisible(true);
+    }
+
+    public MenuPanel getMenuPanel() {
+        return menuPanel;
+    }
+
+    public MusicListPanel getMusicListPanel() {
+        return musicListPanel;
+    }
+
+    public InfoPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public MusicStatusPanel getMusicStatusPanel() {
+        return musicStatusPanel;
+    }
+
+    public MainController getMainController() {
+        return mainController;
     }
 }

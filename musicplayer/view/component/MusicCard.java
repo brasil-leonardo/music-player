@@ -1,7 +1,6 @@
 package musicplayer.view.component;
 
 import java.awt.Dimension;
-import java.awt.Desktop.Action;
 import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -14,6 +13,7 @@ import javax.swing.border.Border;
 public class MusicCard extends JPanel {
     private JLabel musicName;
     private JButton playButton;
+
     public MusicCard(String name, String filePath) {
         this.setSize(new Dimension(562, 30));
         this.setPreferredSize(new Dimension(562, 30));
@@ -32,6 +32,14 @@ public class MusicCard extends JPanel {
         this.add(musicName);
         this.add(Box.createHorizontalGlue());
         this.add(playButton);
+    }
+
+    public JLabel getMusicName() {
+        return musicName;
+    }
+
+    public JButton getPlayButton() {
+        return playButton;
     }
 
     public void addPlayButtonActionListener(ActionListener event) {

@@ -14,6 +14,14 @@ public class MP3Player {
         this.executor = Executors.newSingleThreadExecutor();
     }
 
+    public BasicPlayer getPlayer() {
+        return player;
+    }
+
+    public ExecutorService getExecutor() {
+        return executor;
+    }
+
     public void play(Music music) {
         executor.execute(() -> {
             try {

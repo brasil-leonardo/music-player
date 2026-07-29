@@ -23,6 +23,22 @@ public class MainController {
         settingActionListeners();
     }
 
+    public MenuPanel getMenuPanel() {
+        return menuPanel;
+    }
+
+    public MusicListPanel getMusicListPanel() {
+        return musicListPanel;
+    }
+
+    public InfoPanel getInfoPanel() {
+        return infoPanel;
+    }
+
+    public MusicStatusPanel getMusicStatusPanel() {
+        return musicStatusPanel;
+    }
+
     public void settingActionListeners() {
         musicStatusPanel.addPlayPauseButtonActionListener((ActionEvent event) -> {
             if (musicStatusPanel.getPlayPauseButton().getMusicStatus() == MusicStatus.PLAYING) {
