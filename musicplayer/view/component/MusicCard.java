@@ -10,11 +10,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import musicplayer.model.Music;
+
 public class MusicCard extends JPanel {
-    private JLabel musicName;
+    private Music music;
+    private JLabel musicLabel;
     private JButton playButton;
 
-    public MusicCard(String name, String filePath) {
+    public MusicCard(Music music) {
+        this.music = music;
+
         this.setSize(new Dimension(562, 30));
         this.setPreferredSize(new Dimension(562, 30));
         this.setMinimumSize(new Dimension(562, 30));
@@ -26,23 +31,28 @@ public class MusicCard extends JPanel {
         BoxLayout layoutManager = new BoxLayout(this, BoxLayout.X_AXIS);
         this.setLayout(layoutManager);
 
-        musicName = new JLabel(name);
+        StringBuilder label = new StringBuilder();
+        label.append(music.getFormatedName());
+        label.append(" - ");
+        label.append(music.getFormatedDuration());
+
+        musicLabel = new JLabel(label.toString());
         playButton = new JButton("Play");
 
-        this.add(musicName);
+        this.add(musicLabel);
         this.add(Box.createHorizontalGlue());
         this.add(playButton);
     }
 
-    public JLabel getMusicName() {
-        return musicName;
+    public Music getMusic() {
+        return music;
+    }
+
+    public JLabel getmusicLabel() {
+        return musicLabel;
     }
 
     public JButton getPlayButton() {
         return playButton;
-    }
-
-    public void addPlayButtonActionListener(ActionListener event) {
-        playButton.addActionListener(event);
     }
 }

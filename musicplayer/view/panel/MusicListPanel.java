@@ -2,6 +2,7 @@ package musicplayer.view.panel;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -14,6 +15,7 @@ import musicplayer.view.component.MusicCard;
 public class MusicListPanel extends JScrollPane {
     private MusicListController controller;
     private JPanel panel;
+    private ArrayList<MusicCard> musicCards = new ArrayList<>();
 
     public MusicListPanel() {
         controller = new MusicListController();
@@ -45,32 +47,22 @@ public class MusicListPanel extends JScrollPane {
     }
 
     public void loadMusicsFromHome() {
-        panel.removeAll();
         ArrayList<Music> musics = controller.getMusicsFromHome();
-        panel.add(Box.createVerticalStrut(1));
-        for (Music music : musics) {
-            MusicCard musicCard = new MusicCard(music.getName(), music.getFilePath());
-            musicCard.addPlayButtonActionListener((ActionEvent e) -> {
-                controller.play(music);
-            });
-            panel.add(musicCard);
-            panel.add(Box.createVerticalStrut(1));
-        }
-        panel.revalidate();
-        panel.repaint();
+        addMusicCards(musics);
     }
 
-    public void loadMusicsFromFolder(String path) {
+    public void loadMusicsFrom(Path path) {
+        ArrayList<Music> musics = controller.getMusicsFrom(path);
+        addMusicCards(musics);
+    }
+
+    public void addMusicCards(ArrayList<Music> musics) {
         panel.removeAll();
-        ArrayList<Music> musics = controller.getMusicsFromFolder(path);
-        panel.add(Box.createVerticalStrut(1));
+        musicCards.clear();
         for (Music music : musics) {
-            MusicCard musicCard = new MusicCard(music.getName(), music.getFilePath());
-            musicCard.addPlayButtonActionListener((ActionEvent e) -> {
-                controller.play(music);
-            });            
+            MusicCard musicCard = new MusicCard(music);
+            musicCards.add(musicCard);
             panel.add(musicCard);
-            panel.add(Box.createVerticalStrut(1));
         }
         panel.revalidate();
         panel.repaint();

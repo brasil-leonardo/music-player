@@ -10,42 +10,8 @@ public class MP3Player {
     private ExecutorService executor;
 
     public MP3Player() {
-        this.player = new BasicPlayer();
-        this.executor = Executors.newSingleThreadExecutor();
+        player = new BasicPlayer();
+        executor = Executors.newSingleThreadExecutor();
     }
 
-    public BasicPlayer getPlayer() {
-        return player;
-    }
-
-    public ExecutorService getExecutor() {
-        return executor;
-    }
-
-    public void play(Music music) {
-        executor.execute(() -> {
-            try {
-            player.open(music.getFile());
-            player.play();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    public void pause() {
-        try {
-            player.pause();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void resume() {
-        try {
-            player.resume();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

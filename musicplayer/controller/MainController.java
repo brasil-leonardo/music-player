@@ -1,6 +1,7 @@
 package musicplayer.controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import musicplayer.view.component.PlayPauseButton.MusicStatus;
 import musicplayer.view.panel.InfoPanel;
@@ -20,6 +21,7 @@ public class MainController {
         this.infoPanel = infoPanel;
         this.musicStatusPanel = musicStatusPanel;
 
+        setHomeButtonActionListener();
         settingActionListeners();
     }
 
@@ -39,13 +41,22 @@ public class MainController {
         return musicStatusPanel;
     }
 
+    public void setHomeButtonActionListener() {
+        menuPanel.getHomeButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                musicListPanel.loadMusicsFromHome();
+            }
+        });
+    }
+
     public void settingActionListeners() {
         musicStatusPanel.addPlayPauseButtonActionListener((ActionEvent event) -> {
             if (musicStatusPanel.getPlayPauseButton().getMusicStatus() == MusicStatus.PLAYING) {
-                musicListPanel.getController().pause();
+                //musicListPanel.getController().pause();
                 musicStatusPanel.getPlayPauseButton().alterText();
             } else {
-                musicListPanel.getController().resume();
+                //musicListPanel.getController().resume();
                 musicStatusPanel.getPlayPauseButton().alterText();                
             }
         });
