@@ -1,64 +1,37 @@
 package musicplayer.view.panel;
 
+import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+
 import musicplayer.view.component.MenuButton;
 
 public class MenuPanel extends JPanel {
-    private final MenuButton homeButton;
-    private final MenuButton openFolderButton;
-    private final MenuButton playlistsButton;
+    public MenuPanel(Integer width, Integer height) {
+        super();
 
-    public MenuPanel() {
-        Dimension size = new Dimension(150, 500);
-        setSize(size);
-        setMinimumSize(size);
-        setPreferredSize(size);
-        setMaximumSize(size);
+        Dimension size = new Dimension(width, height);
+        this.setSize(size);
 
         BoxLayout layoutManager = new BoxLayout(this, BoxLayout.Y_AXIS);
-        setLayout(layoutManager);
+        this.setLayout(layoutManager);
 
-        Border border = BorderFactory.createEmptyBorder(10, 10, 10, 10);
-        setBorder(border);
-
-        homeButton = new MenuButton("Home");
-        openFolderButton = new MenuButton("Open Folder");
-        playlistsButton = new MenuButton("Playlists");
-
-        add(homeButton);
-        add(Box.createVerticalStrut(5));
-        add(openFolderButton);
-        add(Box.createVerticalStrut(5));
-        add(playlistsButton);
+        MenuButton homeButton = new MenuButton("Home", 150, 30);
+        MenuButton openFolderButton = new MenuButton("Open Folder", 150, 30);
+        MenuButton playlistsButton = new MenuButton("Playlists", 150, 30);
+        this.addMenuButton(homeButton);
+        this.addMenuButton(openFolderButton);
+        this.addMenuButton(playlistsButton);
     }
 
-    public MenuButton getHomeButton() {
-        return homeButton;
-    }
-
-    public MenuButton getOpenFolderButton() {
-        return openFolderButton;
-    }
-
-    public MenuButton getPlaylistsButton() {
-        return playlistsButton;
-    }
-
-    public void addHomeButtonActionListener(ActionListener event) {
-        homeButton.addActionListener(event);
-    }
-
-    public void addOpenFolderButtonActionListener(ActionListener event) {
-        openFolderButton.addActionListener(event);
-    }
-
-    public void addPlaylistsButtonActionListener(ActionListener event) {
-        playlistsButton.addActionListener(event);
+    public void addMenuButton(MenuButton menuButton) {
+        this.add(menuButton);
+        Component box = Box.createVerticalStrut(5);
+        this.add(box);
     }
 }

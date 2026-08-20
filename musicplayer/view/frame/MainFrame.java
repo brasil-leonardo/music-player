@@ -1,80 +1,50 @@
 package musicplayer.view.frame;
 
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.Border;
+
+import musicplayer.view.panel.MenuPanel;
+import musicplayer.view.panel.MusicListPanel;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-
-import musicplayer.controller.MainController;
-import musicplayer.view.panel.InfoPanel;
-import musicplayer.view.panel.MenuPanel;
-import musicplayer.view.panel.MusicListPanel;
-import musicplayer.view.panel.MusicStatusPanel;
 
 public class MainFrame extends JFrame {
-    private final MenuPanel menuPanel;
-    private final MusicListPanel musicListPanel;
-    private final InfoPanel infoPanel;
-    private final MusicStatusPanel musicStatusPanel;
-    private final MainController mainController;
+    public MainFrame(String title, String iconPath, Integer width, Integer height) {
+        super();
 
-    public MainFrame() {
-        setTitle("MusicPlayer");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon imageIcon = new ImageIcon("assets/icon.png");
+        this.setTitle(title);
+
+        ImageIcon imageIcon = new ImageIcon(iconPath);
         Image image = imageIcon.getImage();
-        setIconImage(image);
+        this.setIconImage(image);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension size = new Dimension(width, height);
+        this.setSize(size);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
 
-        Dimension size = new Dimension(900, 600);
-        setSize(size);
-        setMinimumSize(size);
-        setPreferredSize(size);
-        setMaximumSize(size);
+        JPanel contentPanel = new JPanel();
+        Border border = BorderFactory.createEmptyBorder(5, 5, 5, 5);
+        contentPanel.setBorder(border);
+        this.setContentPane(contentPanel);
 
-        setResizable(false);
+        BorderLayout layoutManager = new BorderLayout(10, 10);
+        this.setLayout(layoutManager);
 
-        setLocationRelativeTo(null);
-
-        BorderLayout layoutManager = new BorderLayout();
-        setLayout(layoutManager);
-
-        menuPanel = new MenuPanel();
-        add(menuPanel, BorderLayout.LINE_START);
-
-        musicListPanel = new MusicListPanel();
-        add(musicListPanel, BorderLayout.CENTER);
-
-        infoPanel = new InfoPanel();
-        add(infoPanel, BorderLayout.LINE_END);
-
-        musicStatusPanel = new MusicStatusPanel();
-        add(musicStatusPanel, BorderLayout.PAGE_END);
-
-        mainController = new MainController(menuPanel, musicListPanel, infoPanel, musicStatusPanel);
-
-        setVisible(true);
     }
 
-    public MenuPanel getMenuPanel() {
-        return menuPanel;
+    public void addMenuPanel(MenuPanel menuPanel) {
+        this.add(menuPanel, BorderLayout.LINE_START);
     }
 
-    public MusicListPanel getMusicListPanel() {
-        return musicListPanel;
-    }
-
-    public InfoPanel getInfoPanel() {
-        return infoPanel;
-    }
-
-    public MusicStatusPanel getMusicStatusPanel() {
-        return musicStatusPanel;
-    }
-
-    public MainController getMainController() {
-        return mainController;
+    public void addMusicListPanel(MusicListPanel musicListPanel) {
+        this.add(musicListPanel, BorderLayout.CENTER);
     }
 }
