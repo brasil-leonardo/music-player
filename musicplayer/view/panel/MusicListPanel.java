@@ -16,6 +16,9 @@ public class MusicListPanel extends JScrollPane {
         this.setViewportView(panel);
 
         Dimension size = new Dimension(width, height);
+        this.setMinimumSize(size);
+        this.setPreferredSize(size);
+        this.setMaximumSize(size);
         this.setSize(size);
 
         this.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);

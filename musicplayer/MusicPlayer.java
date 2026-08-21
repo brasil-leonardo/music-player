@@ -11,7 +11,7 @@ public class MusicPlayer {
     public static void main(String[] args) {
 
         EventQueue.invokeLater(() -> {
-            MainFrame mainFrame = new MainFrame("MusicPlayer", "assets/icons/icon.png", 910, 810);
+            MainFrame mainFrame = new MainFrame("MusicPlayer", "assets/icons/icon.png", 920, 815);
             MenuPanel menuPanel = new MenuPanel(150, 600);
             MusicListPanel musicListPanel = new MusicListPanel(600, 600);
             MusicInfoPanel musicInfoPanel = new MusicInfoPanel(150, 600);

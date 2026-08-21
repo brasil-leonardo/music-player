@@ -14,6 +14,9 @@ public class MenuPanel extends JPanel {
         super();
 
         Dimension size = new Dimension(width, height);
+        this.setMinimumSize(size);
+        this.setPreferredSize(size);
+        this.setMaximumSize(size);
         this.setSize(size);
 
         BoxLayout layoutManager = new BoxLayout(this, BoxLayout.Y_AXIS);
