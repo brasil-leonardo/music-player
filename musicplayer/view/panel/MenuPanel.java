@@ -3,11 +3,9 @@ package musicplayer.view.panel;
 import java.awt.Component;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import musicplayer.view.component.MenuButton;
 
