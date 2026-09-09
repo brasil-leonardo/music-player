@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import musicplayer.view.panel.ControlBarPanel;
 import musicplayer.view.panel.MenuPanel;
 import musicplayer.view.panel.MusicInfoPanel;
 import musicplayer.view.panel.MusicListPanel;
@@ -58,5 +59,9 @@ public class MainFrame extends JFrame {
 
     public void addMusicInfoPanel(MusicInfoPanel musicInfoPanel) {
         this.add(musicInfoPanel, BorderLayout.LINE_END);
+    }
+
+    public void addControlBarPanel(ControlBarPanel controlBarPanel) {
+        this.add(controlBarPanel, BorderLayout.PAGE_END);
     }
 }
